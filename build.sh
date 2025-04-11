@@ -20,4 +20,4 @@ cd ..
 
 echo "Build completed successfully!"
 echo "Run the main program with: ./build/matching_engine"
-echo "Run the tests with: ./build/unit_tests"
+echo "Run the tests with: ./build/tests/unit_tests"
