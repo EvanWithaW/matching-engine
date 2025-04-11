@@ -2,7 +2,7 @@
 // Created by Evan Weidner on 4/9/25.
 //
 
-#include "Order.h"
+#include "Order.hpp"
 #include <sstream>
 // This class should only be used to create an order, all setting should be done at initialization time.
 // Therefore, we don't need any setters, only getter methods.
@@ -35,6 +35,11 @@ double Order::getPrice() const {
 
 int Order::getQuantity() const {
     return quantity;
+}
+
+// Setters
+void Order::setQuantity(int newQuantity) {
+    this->quantity = newQuantity;
 }
 
 const std::chrono::time_point<std::chrono::system_clock>& Order::getTimestamp() const {

@@ -3,7 +3,8 @@
 //
 
 #include <iostream>
-#include "Order.h"
+#include "Order.hpp"
+#include "OrderBook.hpp"
 
 int main() {
     std::cout << "=== Matching Engine Test ===" << std::endl;
@@ -25,6 +26,21 @@ int main() {
     // Test quantity modification
     buyOrder.setQuantity(75);
     std::cout << "\nModified Buy Order: " << buyOrder.toString() << std::endl;
+    
+    // Test OrderBook
+    std::cout << "\n=== Order Book Test ===" << std::endl;
+    OrderBook orderBook("AAPL");
+    
+    // Add orders to the order book
+    orderBook.addOrder(std::make_shared<Order>(buyOrder));
+    orderBook.addOrder(std::make_shared<Order>(sellOrder));
+    
+    // Print order book
+    std::cout << orderBook.toString() << std::endl;
+    
+    // Test market data methods
+    std::cout << "Best Bid Price: " << orderBook.getBestBidPrice() << std::endl;
+    std::cout << "Best Ask Price: " << orderBook.getBestAskPrice() << std::endl;
     
     return 0;
 }
