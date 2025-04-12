@@ -13,27 +13,11 @@
 #include <memory>
 
 struct BuyComparator {
-    bool operator()(const ::std::shared_ptr<Order>& lhs, const ::std::shared_ptr<Order>& rhs) const {
-        // if the same price, then return the earliest as they came first
-        if (lhs->getPrice() == rhs->getPrice()) {
-            return lhs->getTimestamp() < rhs->getTimestamp();
-        } else {
-            // else return the higher price as they're paying more (better bid)
-            return lhs->getPrice() > rhs->getPrice();
-        }
-    }
+    bool operator()(const ::std::shared_ptr<Order>& lhs, const ::std::shared_ptr<Order>& rhs) const;
 };
 
 struct SellComparator {
-    bool operator()(const ::std::shared_ptr<Order>& lhs, const ::std::shared_ptr<Order>& rhs) const {
-        // if the same price, then return the earliest as they came first
-        if (lhs->getPrice() == rhs->getPrice()) {
-            return lhs->getTimestamp() < rhs->getTimestamp();
-        } else {
-            // else return the lower price as they're selling for less (better ask)
-            return lhs->getPrice() < rhs->getPrice();
-        }
-    }
+    bool operator()(const ::std::shared_ptr<Order>& lhs, const ::std::shared_ptr<Order>& rhs) const;
 };
 
 class OrderBook {

@@ -23,10 +23,8 @@ private:
     std::chrono::time_point<std::chrono::system_clock> timestamp;
 
 public:
-    // Constructor declaration
     Order(const std::string& id, const std::string& symbol, OrderSide side, double price, int quantity);
 
-    // Other method declarations
     const std::string& getId() const;
     const std::string& getSymbol() const;
     OrderSide getSide() const;
@@ -40,4 +38,4 @@ public:
     std::string toString() const;
 };
 
-#endif // ORDER_H
+#endif

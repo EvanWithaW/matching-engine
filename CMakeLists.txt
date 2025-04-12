@@ -15,15 +15,25 @@ endif()
 # Include directories
 include_directories(${CMAKE_CURRENT_SOURCE_DIR})
 
+# Add threading subdirectory
+add_subdirectory(threading)
+
 # Define library sources (excluding main.cpp)
 set(LIB_SOURCES
     order/Order.cpp
     order/OrderBook.cpp
     order/OrderFactory.cpp
+    order/Comparators.cpp
+    engine/MatchingEngine.cpp
+    engine/Trade.cpp
+    engine/ContinuousMatchingEngine.cpp
 )
 
 # Create a library with the common code
 add_library(matching_engine_lib STATIC ${LIB_SOURCES})
+
+# Link the threading library
+target_link_libraries(matching_engine_lib threading)
 
 # Create the main executable
 add_executable(${PROJECT_NAME} main.cpp)

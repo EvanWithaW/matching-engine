@@ -7,6 +7,10 @@ add_executable(
     OrderTests.cpp
     OrderBookTests.cpp
     OrderFactoryTests.cpp
+    MatchingEngineTests.cpp
+    TradeTests.cpp
+    ContinuousMatchingEngineTests.cpp
+    ThreadingTests.cpp
 )
 
 # Link with our library and Google Test
